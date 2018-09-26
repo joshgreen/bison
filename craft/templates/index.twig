@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{{ siteName }}</title>
+  <link rel="home" href="{{ siteUrl }}">
+</head>
+<body>
+  <p>
+{% if currentUser %}
+    Welcome, {{ currentUser.friendlyName }}!
+{% endif %}
+</p>
+<h1><a href="{{ siteUrl }}">{{ siteName }}</a></h1>
+
+<nav>
+  <ul>
+    <li>
+      <a href="/blog">Blog</a>
+    </li>
+    <li><a href="/contact">Contact</a></li>
+  </ul>
+</nav>
+
+
+
+
+<p>
+{% if not currentUser %}
+    <a href="{{ loginUrl }}">Login</a>
+{% endif %}
+</p>
+<p>Today is {{ now|date('M j, Y') }}.</p>
+</body>
+</html>
